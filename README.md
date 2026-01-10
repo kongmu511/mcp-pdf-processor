@@ -12,12 +12,34 @@ An MCP (Model Context Protocol) server for extracting and processing PDF content
 
 ## Installation
 
-### Prerequisites
+### Automatic Setup (Recommended)
 
-- Python 3.10+
-- `pdftotext` and `pdfinfo` utilities
+**macOS/Linux:**
+```bash
+git clone https://github.com/kongmu511/mcp-pdf-processor.git
+cd mcp-pdf-processor
+chmod +x setup.sh
+./setup.sh
+```
 
-#### Install PDF Tools
+**Windows:**
+```cmd
+git clone https://github.com/kongmu511/mcp-pdf-processor.git
+cd mcp-pdf-processor
+setup.bat
+```
+
+The setup script will:
+- ✅ Install poppler (pdftotext/pdfinfo) automatically
+- ✅ Install the Python package
+- ✅ Configure Claude Desktop automatically
+- ✅ Handle OS differences (macOS, Linux, Windows)
+
+### Manual Setup
+
+If you prefer manual installation:
+
+**1. Install PDF Tools**
 
 **macOS:**
 ```bash
@@ -39,19 +61,29 @@ sudo dnf install poppler-utils
 choco install poppler
 ```
 
-### Setup MCP Server
+**2. Install Python Package**
 
 ```bash
-git clone https://github.com/yourusername/mcp-pdf-processor.git
+git clone https://github.com/kongmu511/mcp-pdf-processor.git
 cd mcp-pdf-processor
 pip install -e .
 ```
 
+**3. Configure Claude Desktop** (see [Configuration](#configuration) section)
+
 ## Usage
+
+### Quick Start
+
+After running the automatic setup script, restart Claude Desktop and ask:
+
+> "Extract the text from `/path/to/document.pdf`"
+
+The agent will automatically use the PDF processing tools.
 
 ### As an MCP Server
 
-Add to your Claude Desktop configuration (`~/.config/Claude/claude_desktop_config.json` on macOS/Linux or `%APPDATA%\Claude\claude_desktop_config.json` on Windows):
+The setup script automatically configures Claude Desktop. If you need to configure manually:
 
 ```json
 {
@@ -158,9 +190,9 @@ MIT License - See LICENSE file for details
 
 Contributions are welcome! Please:
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/add-pdf-extraction`)
+3. Commit your changes (`git commit -m 'Add PDF extraction capability'`)
+4. Push to the branch (`git push origin feature/add-pdf-extraction`)
 5. Open a Pull Request
 
 ## Support
