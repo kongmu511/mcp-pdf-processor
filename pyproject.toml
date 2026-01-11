@@ -39,7 +39,7 @@ dev = [
 mcp-pdf-processor = "pdf_processor_server:main"
 
 [tool.setuptools]
-packages = ["."]
+# packages = ["."]  # Removed - not needed for single file module
 
 [tool.black]
 line-length = 100
